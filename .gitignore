@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Secrets & Environment
+.env
+.env.*
+backend/.env
+frontend/.env
+*.env
+
+# Build & caches
+dist/
+build/
+.cache/
+
+# System & editor artifacts
+*.log
+.DS_Store
+.vscode/

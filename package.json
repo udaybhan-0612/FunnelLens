@@ -1,0 +1,12 @@
+{
+  "name": "funnellens-monorepo",
+  "version": "1.0.0",
+  "description": "FunnelLens — User Analytics & Session Intelligence Platform",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "serve:demo": "npx serve demo -p 8080"
+  },
+  "author": "Udaybhan Pandey",
+  "license": "MIT"
+}

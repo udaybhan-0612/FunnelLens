@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuraStore — Modern Audio (FunnelLens Demo)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2"></div>
+
+  <!-- Navbar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-sm">A</div>
+        <span class="font-bold text-xl tracking-tight text-slate-900">AuraStore</span>
+        <span class="ml-2 px-2 py-0.5 text-xs font-semibold bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200">Interactive Demo</span>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+        <a href="#headphones" class="hover:text-indigo-600 transition">Headphones</a>
+        <a href="#speakers" class="hover:text-indigo-600 transition">Smart Speakers</a>
+        <a href="#accessories" class="hover:text-indigo-600 transition">Accessories</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button id="btn-cart" class="relative p-2 text-slate-600 hover:text-indigo-600 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span id="cart-count" class="absolute -top-1 -right-1 w-5 h-5 bg-indigo-600 text-white text-xs font-bold rounded-full flex items-center justify-center">0</span>
+        </button>
+        <button id="btn-login" class="text-sm font-semibold text-slate-700 hover:text-indigo-600 px-3 py-1.5 rounded-lg border border-slate-300 hover:border-indigo-400 transition">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-indigo-50/60 to-white py-14 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+        Pure Sound. Zero Distractions.
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        Experience studio-mastered wireless audio engineered with adaptive noise cancellation.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <button id="hero-cta-buy" class="px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium shadow-md hover:bg-indigo-700 active:scale-95 transition">
+          Shop Aura Pro Wireless
+        </button>
+        <button id="hero-cta-specs" class="px-6 py-3 rounded-lg bg-white border border-slate-300 text-slate-700 font-medium hover:bg-slate-50 active:scale-95 transition">
+          View Tech Specs
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold text-slate-900">Featured Products</h2>
+      <span class="text-sm text-slate-500 font-medium">Click buttons to trigger events & telemetry</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-full h-44 bg-indigo-50/60 rounded-lg flex items-center justify-center text-indigo-400 font-bold mb-4">
+            Aura Pro ANC Headphones
+          </div>
+          <h3 class="font-bold text-lg text-slate-900">Aura Pro Wireless</h3>
+          <p class="text-sm text-slate-500 mt-1">Spatial audio, 40hr battery, hybrid noise cancelling.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-xl font-bold text-slate-900">$299</span>
+          <button data-product="Aura Pro Wireless" class="btn-add-cart px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 active:scale-95 transition shadow-sm">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-full h-44 bg-indigo-50/60 rounded-lg flex items-center justify-center text-indigo-400 font-bold mb-4">
+            Aura Studio Soundbar
+          </div>
+          <h3 class="font-bold text-lg text-slate-900">Aura Studio Bar</h3>
+          <p class="text-sm text-slate-500 mt-1">Dolby Atmos certified, wireless subwoofer included.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-xl font-bold text-slate-900">$449</span>
+          <button data-product="Aura Studio Bar" class="btn-add-cart px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 active:scale-95 transition shadow-sm">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between hover:shadow-md transition">
+        <div>
+          <div class="w-full h-44 bg-indigo-50/60 rounded-lg flex items-center justify-center text-indigo-400 font-bold mb-4">
+            Aura Air Pods
+          </div>
+          <h3 class="font-bold text-lg text-slate-900">Aura Air Compact</h3>
+          <p class="text-sm text-slate-500 mt-1">IPX7 water resistant, pocket charging case, crystal mic.</p>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span class="text-xl font-bold text-slate-900">$149</span>
+          <button data-product="Aura Air Compact" class="btn-add-cart px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 active:scale-95 transition shadow-sm">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+    <p>FunnelLens Live Telemetry Demo — Integrated tracking script active.</p>
+  </footer>
+
+  <!-- Interactive Demo Logic -->
+  <script>
+    let cartTotal = 0;
+    const cartBadge = document.getElementById('cart-count');
+    const toastContainer = document.getElementById('toast-container');
+
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'bg-slate-900 text-white text-sm px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0';
+      toast.innerHTML = `<span class="text-emerald-400 font-bold">✓</span> <span>${message}</span>`;
+      toastContainer.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 2500);
+    }
+
+    document.querySelectorAll('.btn-add-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        cartTotal += 1;
+        cartBadge.textContent = cartTotal;
+        showToast(`Added <strong>${button.getAttribute('data-product')}</strong> to cart!`);
+      });
+    });
+
+    document.getElementById('hero-cta-buy')?.addEventListener('click', () => {
+      cartTotal += 1;
+      cartBadge.textContent = cartTotal;
+      showToast('Added Aura Pro Wireless via Hero CTA!');
+    });
+
+    document.getElementById('hero-cta-specs')?.addEventListener('click', () => {
+      showToast('Tech Specs modal triggered.');
+    });
+
+    document.getElementById('btn-login')?.addEventListener('click', () => {
+      showToast('Sign-in modal triggered.');
+    });
+
+    document.getElementById('btn-cart')?.addEventListener('click', () => {
+      showToast(`Shopping cart contains ${cartTotal} item(s).`);
+    });
+  </script>
+
+  <!-- FunnelLens Tracking Script -->
+  <script src="./funnellens.js" data-api-endpoint="http://localhost:5000/api/events"></script>
+</body>
+</html>
